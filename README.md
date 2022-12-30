@@ -2,18 +2,17 @@
 
 fonte: curso de js do prof:
 
-link no esplore url('C:\Users\junio\OneDrive\Área de Trabalho\___curso-baixado-para-avaliar\O-poder-do-Javascript-JStack')
+link no explore url('C:\Users\junio\OneDrive\Área de Trabalho\___curso-baixado-para-avaliar\O-poder-do-Javascript-JStack')
 
 ## Para comecar
 
-Crie uma pasta onde vai ficar o projeto
-Abre o terminal crie uma pasta: mkdir api
-Abre o vscode, digitando no proprio terminal code api
+Crie uma pasta onde vai ficar o projeto.
+Abre o terminal crie a pasta: mkdir api.
+Abre o vscode, digitando no próprio terminal: code api.
 
 ## Com o vscode aberto
 
-Abre  o terminal e digite:
-install o
+Abre o terminal e digite:
 
 ```jsx
 npm i -g yarn
@@ -27,13 +26,13 @@ Agora vamos iniciar nosso projeto, Digite:
 yarn init -y
 ```
 
-caso nao funcione att o npm para no minimo esssa versao.
+caso nao funcione att o npm para no minimo esssa versão.
 
 ```jsx
 npm install -g npm@9.2.0
 ```
 
-Tenta denovo, se nao der certo da pra usar o npm no lugar do yarn sem problema.
+Tenta denovo, se nao der certo da pra usar o npm no lugar do yarn sem problema. Pode ser usado o npm mesmo.
 
 Instalando o typescript como dependencia:
 
@@ -41,17 +40,17 @@ Instalando o typescript como dependencia:
 yarn add -D typescript
 ```
 
-criando o comoando de configuracao do typescript
+criando o comando de configuração do typescript
 
 ```jsx
 yarn tsc --init
 ```
 
-Vamos usar o padrao mesmo, nao altere nada no arquivo gerado tsconfig.json
+Vamos usar o padrão mesmo, não altere nada no arquivo gerado tsconfig.json
 
 ## Criando a pasta com o nome src
 
-Onde vai ficar nosso projeto
+Onde vai ficar nosso projeto.
 
 Dentro crie um arquivo index.ts
 
@@ -64,7 +63,7 @@ texto = 1235;
 console.log(texto);
 ```
 
-vai da um erro pq node não roda TS.
+Vai da um erro pq node não roda TS. Bora arrumar isso.
 
 No terminal digite:
 
@@ -72,13 +71,13 @@ No terminal digite:
 yarn tsc
 ```
 
-para criar o arquivo js.
+Este comando cria o arquivo js.
 
-Antes de rodar vai no arquivo tsconfig, na linha 52 ou proximo ache o "outDir" que é a configuracao de onde criar a saida do js criado, e coloca como ./dist ou ./build, tanto faz, este arquivo vai ser o arquivo de distribuição para deploy.
+Antes de rodar vai no arquivo tsconfig, na linha 52 ou próximo ache o "outDir" que é a configuração de onde criar a saída do js criado, e coloca como ./dist ou ./build, tanto faz, este arquivo vai ser o arquivo de distribuição para deploy.
 
 ## Pronto: vamos continuar criando nosso projeto
 
-Vamos no package.json e cria o script para ao inves de ficar rodando yarn tsc vamos roda como yarn build
+Vamos no package.json e cria o script para ao invés de ficar rodando yarn tsc vamos roda como yarn build
 Altere o script para esse.
 
 ```jsx
@@ -110,16 +109,16 @@ Instalar extension no vscode
 Editando o editorConfig, clica com o direito na raiz do projeto e vai no generation .editorconfig e clica nele, pronto foi criado um novo arquino na raiz com o nome .editorconfig.
 clica neste arquivo e estude ele.
 
-Este arquivo serve para definir as configuração padrão do seu projeto em questão de identação. ex. espaco de linha pulo delinas etc.
+Este arquivo serve para definir as configuração padrão do seu projeto em questão de identação. ex. espaco de linha, pulos de linhas, etc.
 
-Instalsndo o eslink, digite
+Instalando o eslink, digite
 
 ```jsx
 npm init @eslint/config
 ```
 
 Aqui temos bastante perguntas para configurar
-escolha entra elas, vai aparecer uma de cada vez, use a cetas para andar entre elas.
+escolha entre elas, vai aparecer uma de cada vez, use a setas para andar entre elas.
 👉 To check syntax, find problems, and enforce code style
 👉 JavaScript modules (import/export)
 👉 None of these
@@ -143,15 +142,14 @@ escolha entra elas, vai aparecer uma de cada vez, use a cetas para andar entre e
 Instalar sua dependencia
 
 ```jsx
-
   yarn add -D @types/express
 ```
 
-beleza, bora para o código do servidor.
+Beleza, bora para o código do servidor.
 
 ## edita o index.ts
 
- digite nele:
+Digite nele:
 
 ```jsx
 import express from "express";
@@ -178,12 +176,11 @@ node dist
 yarn add -D ts-node
 ```
 
-Nota: com este arquivo eu posso rodar o serve e ir testando sen tem a pasta dist, ou sejaa, posso fazer todo o meu código e só criar a pasta dist.
+Nota: com este arquivo eu posso rodar o serve e ir testando sem ter a pasta dist, ou seja, posso fazer todo o meu código e só criar a pasta dist no final.
 
 Como rodar:
 
 ```jsx
-
 yarn ts-node src/index.ts
 ```
 
@@ -195,12 +192,11 @@ Digite:
 yarn add -D nodemon
 ```
 
-Cria um novo script no packege.json para usar esses dois
-Nota: qnd chamar o nodemon ele vai j=chamar o ts-node
+Cria um novo script no package.json para usar esses dois
+Nota: qnd chamar o nodemon ele vai chamar o ts-node
 Add essa linha no script.
 
 ```jsx
-
 ,"dev": "nodemon src/index.ts"
 ```
 
@@ -210,7 +206,7 @@ Rode o codigo:
 yarn dev
 ```
 
-se tudo deu certo vai esta com o servidor rodando.
+Se tudo deu certo vai esta com o servidor rodando.
 
 ok, salvarei aqui, como a version v0.0.2 template
 
@@ -234,7 +230,7 @@ blz, vamos que vamos ....
 
 ### Nota: se fechar tudo ao abrir tem que startar o mongo no docker
 
-se estiver dando erro de coneccao seque o passo acima.
+Se estiver dando erro de conexão seque o passo acima.
 
 Agora vamos escrever a linha de código para se conectar no mongodb, vai no index.ts e escreva as linhas a seguir.
 
@@ -246,7 +242,7 @@ mongoose.connect("mongodb://localhost:27017")
     .catch((e) =>  console.log(e, "algo deu errado"));
 ```
 
-para o servidor e rode denovo: relembando no terminal: aperte o ctrl + C depois digite:
+Para o servidor e rode denovo: relembando no terminal: aperte o ctrl + C depois digite:
 
 ```jsx
 yarn dev
@@ -263,7 +259,7 @@ senao
 
 blz... bora.
 
-## fase 6 -criação do model
+## fase 6 - criação do models
 
 Abre o editor de banco de dados de sua preferencia.
 
@@ -272,7 +268,7 @@ Faca sua estrutura, conforme image-01.png
 URL("./img/image-01.png");
 
 Agora precisamos fazer a estrutura do models
-cria uma pasta app/models/Category.ts -- aqui é como se fosse nosso tabela la da foto
+Cria uma pasta app/models/Category.ts -- aqui é como se fosse nosso tabela la da foto
 
 Dentro deste arquivo digite:
 
@@ -325,7 +321,7 @@ export const Order = model("Order", new Schema({
 
 ```
 
-Boa Coseguimos chegar ate aqui. outra fase concluida. Parabens...
+Boa Conseguimos chegar até aqui. outra fase concluida. Parabéns...
 
 ## fase 7 - continua 1:25:00
 
