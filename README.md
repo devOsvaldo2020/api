@@ -325,6 +325,170 @@ Boa Conseguimos chegar até aqui. outra fase concluida. Parabéns...
 
 ## fase 7 - continua 1:25:00
 
+### rotas
+
+### definindo o caso de uso para as rotas
+
+👉 listar categoria
+👉 create categoria
+👉 listar produtos
+👉 create produtos
+👉 get products by category
+👉 listar order
+👉 create order
+👉 change order status
+👉 delete / cancel order
+
+crie um arquivo com o nome router.ts la no seu src
+
+Digite as seguintes linha nele:
+
+```jsx
+import { Router } from "express";
+
+export const router = Router();
+
+// 👉 listar categoria
+router.get("/catedories", (req, res) => {
+    res.send("ok");
+});
+// 👉 create categoria
+router.post("/categoreis", (req, res) => {
+    res.send("ok");
+});
+// 👉 listar produtos
+router.get("/products", (req, res) => {
+    res.send("ok");
+});
+// 👉 create produtos
+router.post("/products", (req, res) => {
+    res.send("ok");
+});
+// 👉 get products by category
+router.get("/categories/:categoriesId/products", (req, res) => {
+    res.send("ok");
+});
+// 👉 listar order
+router.get("/orders", (req, res) => {
+    res.send("ok");
+});
+// 👉 create order
+router.post("/orders", (req, res) => {
+    res.send("ok");
+});
+// 👉 change order status
+router.patch("/orders/:orderId", (req, res) => {
+    // patch - alteracao parcial de elemento(s)
+    // put - alteracao completa nos elementos.
+    res.send("ok");
+});
+// 👉 delete / cancel order
+router.delete("/orders/:orderId", (req, res) => {
+    res.send("ok");
+});
+
+```
+
+### casos de uso
+
+Crie uma pasta no src/app com o nome useCases
+
+Dentro desta pasta, crie pastas para cada entidade.
+
+crie as pastas para:
+👉 categories
+👉 products
+👉 orders
+
+<!-- categorias listar categorias-->
+Dentro de categories crie o arquivo:
+
+```jsx
+    listCategories.ts
+```
+
+e digite nele:
+
+```jsx
+    import { Request, Response } from "express";
+
+    import { Category } from "../../models/Category";
+
+    export async function listCategories(req: Request, res: Response) {
+        const categories = await Category.find();
+        res.json(categories);
+    }
+
+```
+
+muda no arquivo router na linha...
+
+```jsx
+    // 👉 listar categoria
+    router.get("/categories", (req, res) => {
+        res.send("ok");
+    });
+```
+
+para...
+
+```jsx
+    // 👉 listar categoria
+    router.get("/categories", listCategories);
+```
+
+Pronto finalizado ate aqui, segue nos outros códigos.
+
+
+<!-- categorias create categorias-->
+Dentro de categories crie o arquivo:
+
+```jsx
+    createCategories.ts
+```
+
+e digite nele:
+
+```jsx
+    import { Request, Response } from "express";
+
+    import { Category } from "../../models/Category";
+
+    export async function createCategories(req: Request, res: Response) {
+        const {icon, name} = req.body;
+
+        const category = await Category.create({icon, name});
+
+        res.json(category);
+        }
+    }
+
+```
+
+muda no arquivo router na linha...
+
+
+```jsx
+    // 👉 create categoria
+    router.post("/categories", (req, res) => {
+        res.send("ok");
+    });
+```
+
+para...
+
+```jsx
+    // 👉 create categoria
+    router.post("/categories", createCategories);
+```
+
+Pronto finalizado ate aqui, segue nos outros códigos.
+
+#### fase 7 - concluida a parte de categorias.
+
+contiue em 2:00:00
+
+ ### fase 7 - parte produto
 
 
 
@@ -340,9 +504,9 @@ Boa Conseguimos chegar até aqui. outra fase concluida. Parabéns...
 
 
 
+```jsx
 
-
-
+```
 
 ```jsx
 
@@ -357,3 +521,11 @@ Boa Conseguimos chegar até aqui. outra fase concluida. Parabéns...
 ```
 
 👉
+🍕
+🍔
+🥤
+🥂
+🏪
+📌
+
+
