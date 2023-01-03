@@ -8,7 +8,7 @@ export async function listOrders(req: Request, res: Response) {
             .sort({ createdAt: 1 }) // -1 o ultimo que saiu --> 1 o primeiro que saiu
             .populate("products.product");
 
-        res.json(orders);
+        res.status(200).json(orders);
     } catch (error) {
         console.log(error);
         res.sendStatus(500);

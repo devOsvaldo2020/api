@@ -12,7 +12,7 @@ mongoose.connect("mongodb://localhost:27017")
         const app = express();
         // saida para o navegador
         const port = 3001;
-        //
+        // manipulando o path
         app.use("/uploads", express.static( path.resolve(__dirname, "..", "uploads")));
         // manipulando um json
         app.use(express.json());
@@ -23,9 +23,4 @@ mongoose.connect("mongodb://localhost:27017")
             console.log(`Conectado com SUCESSO, servidor rodando no http://localhost:${port}`);
         });
     })
-    .catch(() => console.log("algo deu errado"));
-
-
-// rotas:
-
-
+    .catch((err) => console.log("Algo deu errado, não foi possivel conectar com o mongodb, provavelmente o mongodb no docker esta pausado. vai lá e da um player..: " + err));
