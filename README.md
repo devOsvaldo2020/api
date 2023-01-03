@@ -415,8 +415,14 @@ e digite nele:
     import { Category } from "../../models/Category";
 
     export async function listCategories(req: Request, res: Response) {
-        const categories = await Category.find();
-        res.json(categories);
+        try{
+            const categories = await Category.find();
+            res.json(categories);
+        }catch{
+            console.log(error);
+            res.sendStatus(500);
+        }
+
     }
 
 ```
@@ -439,7 +445,6 @@ para...
 
 Pronto finalizado ate aqui, segue nos outros códigos.
 
-
 <!-- categorias create categorias-->
 Dentro de categories crie o arquivo:
 
@@ -455,18 +460,18 @@ e digite nele:
     import { Category } from "../../models/Category";
 
     export async function createCategories(req: Request, res: Response) {
+        try {
         const {icon, name} = req.body;
-
         const category = await Category.create({icon, name});
-
         res.json(category);
+        } catch {
+            res.sendStatus(500);
         }
     }
 
 ```
 
 muda no arquivo router na linha...
-
 
 ```jsx
     // 👉 create categoria
@@ -484,7 +489,7 @@ para...
 
 Pronto finalizado ate aqui, segue nos outros códigos.
 
-#### fase 7 - concluida a parte de categorias.
+#### fase 7 - concluida a parte de categorias
 
 contiue em 2:00:00
 
@@ -492,20 +497,8 @@ contiue em 2:00:00
 
 <!-- produto -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+continua ...
+<!-- fim no 3:08:00 -->
 ```jsx
 
 ```
@@ -530,4 +523,6 @@ contiue em 2:00:00
 🏪
 📌
 
+"[{"name": "Brie", "icon": "🧀"},{ "name": "Gouda", "icon": "🧀"},{ "name": "Parmesao", "icon": "🧀"},{ "name": "Mussarela", "icon": "🧀"}]"
 
+[{ "name": "Mussarela", "icon": "🧀"},{ "name": "Parmesao", "icon": "🧀"},{ "name": "Gouda", "icon": "🧀"},{ "name": "Brie", "icon": "🧀"}]

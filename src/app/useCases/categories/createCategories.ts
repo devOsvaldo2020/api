@@ -3,11 +3,19 @@ import { Request, Response } from "express";
 import { Category } from "../../models/Category";
 
 export async function createCategories(req: Request, res: Response) {
-    const {icon, name} = req.body;
-
-    const category = await Category.create({icon, name});
-    
-    res.json(category);
+    try {
+        const { icon, name } = req.body;
+        if (!name) {
+            return res.status(400).json({
+                error: "Nome é obrigatório"
+            });
+        }
+        const category = await Category.create({ icon, name });
+        res.status(200).json(category);
+    } catch (error) {
+        console.log(error);
+        res.sendStatus(500);
+    }
 }
 
 
