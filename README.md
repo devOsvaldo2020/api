@@ -393,12 +393,12 @@ router.delete("/orders/:orderId", (req, res) => {
 
 Crie uma pasta no src/app com o nome useCases
 
-Dentro desta pasta, crie pastas para cada entidade.
+Dentro desta pasta [useCases], crie pastas para cada entidade.
 
 crie as pastas para:
 👉 categories
 👉 products
-👉 orders
+👉 order
 
 <!-- categorias listar categorias-->
 Dentro de categories crie o arquivo:
@@ -422,7 +422,6 @@ e digite nele:
             console.log(error);
             res.sendStatus(500);
         }
-
     }
 
 ```
@@ -489,16 +488,219 @@ para...
 
 Pronto finalizado ate aqui, segue nos outros códigos.
 
-#### fase 7 - concluida a parte de categorias
+#### fase 7.1 - concluida a parte de products
 
 contiue em 2:00:00
+<!-- categorias listar categorias-->
+Dentro de products crie o arquivo:
 
-### fase 7 - parte produto
+```jsx
+    listProducts.ts
+```
 
-<!-- produto -->
+e digite nele:
+
+```jsx
+    import { Request, Response } from "express";
+
+    import { Products } from "../../models/Products";
+
+    export async function listCategories(req: Request, res: Response) {
+        try{
+            const product = await Products.find();
+            res.json(product);
+        }catch{
+            console.log(error);
+            res.sendStatus(500);
+        }
+    }
+
+```
+
+muda no arquivo router na linha...
+
+```jsx
+    // 👉 listar categoria
+    router.get("/products", (req, res) => {
+        res.send("ok");
+    });
+```
+
+para...
+
+```jsx
+    // 👉 listar categoria
+    router.get("/products", listProducts);
+```
+
+Pronto finalizado ate aqui, segue nos outros códigos.
+
+<!-- categorias create categorias-->
+Dentro de products crie o arquivo:
+
+```jsx
+    createProducts.ts
+```
+
+e digite nele:
+
+```jsx
+    import { Request, Response } from "express";
+
+    import { Product } from "./../../models/Product";
+
+    export async function createProduct(req: Request, res: Response) {
+        try {
+            const imagePath = req.file?.filename;
+            const { name, description, price, category, ingredients } = req.body;
+
+            const product = await Product.create({
+                name,
+                description,
+                imagePath: imagePath ? imagePath : "image.png",
+                price: Number(price),
+                category,
+                ingredients: ingredients ? JSON.parse(ingredients) : [],
+            });
+
+            res.json(product);
+
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+    }
+}
+
+```
+
+muda no arquivo router na linha...
+
+```jsx
+    // 👉 create categoria
+    router.post("/products", (req, res) => {
+        res.send("ok");
+    });
+```
+
+para...
+
+```jsx
+    // 👉 create categoria
+    router.post("/products", createProduct);
+```
+
+Pronto finalizado ate aqui, segue nos outros códigos.
+### fim da fase 7.1 products
+
+
+#### fase 7.2 - concluida a parte de order
+
+contiue em 2:00:00
+<!-- categorias listar categorias-->
+Dentro de order crie o arquivo:
+
+```jsx
+    listOrders.ts
+```
+
+e digite nele:
+
+```jsx
+    import { Request, Response } from "express";
+
+    import { Order } from "../../models/Order";
+
+    export async function listOrders(req: Request, res: Response) {
+        try {
+            const orders = await Order.find()
+                .sort({ createdAt: 1 }) // -1 o ultimo que saiu --> 1 o primeiro que saiu
+                .populate("products.product");
+
+         res.json(orders);
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }
+    }
+
+```
+
+muda no arquivo router na linha...
+
+```jsx
+    // 👉 listar categoria
+    router.get("/orders", (req, res) => {
+        res.send("ok");
+    });
+```
+
+para...
+
+```jsx
+    // 👉 listar categoria
+    router.get("/Orders", listOrders);
+```
+
+Pronto finalizado ate aqui, segue nos outros códigos.
+
+<!-- categorias create categorias-->
+Dentro de order crie o arquivo:
+
+```jsx
+    createOrders.ts
+```
+
+e digite nele:
+
+```jsx
+    import { Request, Response } from "express";
+
+    import { Order } from "../../models/Order";
+
+    export async function createOrder(req: Request, res: Response) {
+        try {
+            const {table, products} = req.body;
+
+            const order = await Order.create({table, products});
+
+            res.status(201).json(order);
+
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(500);
+        }
+    }
+
+```
+
+muda no arquivo router na linha...
+
+```jsx
+    // 👉 create categoria
+    router.post("/orders", (req, res) => {
+        res.send("ok");
+    });
+```
+
+para...
+
+```jsx
+    // 👉 create categoria
+    router.post("/orders", createOrder);
+```
+
+Pronto finalizado ate aqui, segue nos outros códigos.
+
+
+
+#### fase 7.2 - concluida a parte de orders
+
 
 continua ...
 <!-- fim no 3:08:00 -->
+
+
+
 ```jsx
 
 ```
