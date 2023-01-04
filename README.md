@@ -1,6 +1,7 @@
 # projeto em typescript
 
-fonte: curso de js do prof:
+fonte: curso de js do prof: Mateus
+git:
 
 link no explore url('C:\Users\junio\OneDrive\Área de Trabalho\___curso-baixado-para-avaliar\O-poder-do-Javascript-JStack')
 
@@ -590,8 +591,8 @@ para...
 ```
 
 Pronto finalizado ate aqui, segue nos outros códigos.
-### fim da fase 7.1 products
 
+### fim da fase 7.1 products
 
 #### fase 7.2 - concluida a parte de order
 
@@ -692,14 +693,10 @@ para...
 Pronto finalizado ate aqui, segue nos outros códigos.
 
 
-
 #### fase 7.2 - concluida a parte de orders
-
 
 continua ...
 <!-- fim no 3:08:00 -->
-
-
 
 ```jsx
 
@@ -725,6 +722,6 @@ continua ...
 🏪
 📌
 
-"[{"name": "Brie", "icon": "🧀"},{ "name": "Gouda", "icon": "🧀"},{ "name": "Parmesao", "icon": "🧀"},{ "name": "Mussarela", "icon": "🧀"}]"
-
+<!--
 [{ "name": "Mussarela", "icon": "🧀"},{ "name": "Parmesao", "icon": "🧀"},{ "name": "Gouda", "icon": "🧀"},{ "name": "Brie", "icon": "🧀"}]
+ -->
